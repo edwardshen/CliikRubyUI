@@ -1,0 +1,28 @@
+<center><h2>Wish List</h2></center>
+<%= form_tag :controller => :form, :action => :get_wish_favorite_activities_2 do %>
+<hr>
+    <b>What kind of interests should your dating partner have?</b><br>
+    Page 2(choose up to 3)(total 16)<br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+    <%= check_box_tag 'activity_list[]', 'concert' %>Go to concerts <br>
+    <%= check_box_tag 'activity_list[]', 'painting' %>Painting <br>
+    <%= check_box_tag 'activity_list[]', 'cooking' %>Cooking <br>
+    <%= check_box_tag 'activity_list[]', 'reading' %>Reading <br>
+    <%= check_box_tag 'activity_list[]', 'performance' %>Performance art <br>
+    <%= check_box_tag 'activity_list[]', 'instrument' %>Playing Instrument <br>
+    <%= check_box_tag 'activity_list[]', 'video_gaming' %>Video gaming <br>
+    <%= check_box_tag 'activity_list[]', 'cleaning' %>Cleaning the house <br>
+    <%= check_box_tag 'activity_list[]', 'yoga' %>Yoga <br>
+    <%= check_box_tag 'activity_list[]', 'puzzle_game' %>Puzzles/Board games <br>
+    <%= check_box_tag 'activity_list[]', 'lounge' %>Lounge bars <br>
+    <%= check_box_tag 'activity_list[]', 'clubbing' %>Clubbing <br>
+    <%= check_box_tag 'activity_list[]', 'KTV' %>KTV <br>
+    <%= check_box_tag 'activity_list[]', 'comic' %>Comics <br>
+    <%= check_box_tag 'activity_list[]', 'restaurent_exploring' %>New restaurant exploring <br>
+    <%= check_box_tag 'activity_list[]', 'movie' %>Watching movies <br><br>
+<hr>
+    <%= submit_tag "Submit" %>
+<% end %>
+
+
+

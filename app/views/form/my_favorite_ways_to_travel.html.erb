@@ -1,0 +1,22 @@
+<center><h2>Who am I?</h2></center>
+<%= form_tag :controller => :form, :action => :get_favorite_ways_to_travel do %>
+<hr>
+    <b>What are your favorite ways to travel?</b><br>
+    (choose up to 5)(total 12)<br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+    <%= check_box_tag 'way_to_travel_list[]', 'cruise' %>Join a cruise or a tour <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'island' %>Stay at a resorts on a island with great beach <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'known_city' %>Major cities I’ve been to and I know how to enjoy <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'unknown_city' %>Major cities I’ve never been to <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'exotic' %>Exotic places I’ve never been to <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'bag_packer' %>I can be a bag packer in tents or youth hostel <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'bed_and_breakfast' %>I can stay at local B&B <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'boutique_hotel' %>I prefer boutique hotels <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'chain_hotel' %>I trust chain hotels <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'surprise' %>I like to surprise myself during every trip <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'wander' %>Once I got the hotel booked, I like to wander around <br>
+    <%= check_box_tag 'way_to_travel_list[]', 'planned' %>Got everything planned and booked before I take off <br><br>
+<hr>
+    <%= submit_tag "Submit" %>
+<% end %>
+

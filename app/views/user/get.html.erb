@@ -1,0 +1,9 @@
+<center><h2>Create User</h2></center>
+<br>
+<center>
+<%= form_tag :controller => :user, :action => :create do %>
+    username: 
+    <%= text_field_tag :name, nil %>
+    <%= submit_tag "submit" %>
+<% end %>
+</center>

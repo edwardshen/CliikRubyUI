@@ -1,0 +1,29 @@
+<center><h2>Wish List</h2></center>
+<%= form_tag :controller => :form, :action => :get_wish_favorite_cities do %>
+<hr>
+    <b>Which city should your mate like the most?</b><br>
+    It doesn’t matter you live there, been there or never been, as long as you like it. (choose up to 3)(total 18)<br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+    <%= check_box_tag 'city_list[]', 'taipei' %>Taipei <br>
+    <%= check_box_tag 'city_list[]', 'hong_kong' %>Hong Kong <br>
+    <%= check_box_tag 'city_list[]', 'singapore' %>Singapore <br>
+    <%= check_box_tag 'city_list[]', 'tokyo' %>Tokyo <br>
+    <%= check_box_tag 'city_list[]', 'kyoto' %>Kyoto <br>
+    <%= check_box_tag 'city_list[]', 'seoul' %>Seoul <br>
+    <%= check_box_tag 'city_list[]', 'shanghai' %>Shanghai <br>
+    <%= check_box_tag 'city_list[]', 'beijing' %>Beijing <br>
+    <%= check_box_tag 'city_list[]', 'new_york' %>New York <br>
+    <%= check_box_tag 'city_list[]', 'san_Francisco' %>San Francisco <br>
+    <%= check_box_tag 'city_list[]', 'los_angeles' %>Los Angeles <br>
+    <%= check_box_tag 'city_list[]', 'vancouver' %>Vancouver <br>
+    <%= check_box_tag 'city_list[]', 'toronto' %>Toronto <br>
+    <%= check_box_tag 'city_list[]', 'barcelona' %>Barcelona <br>
+    <%= check_box_tag 'city_list[]', 'madrid' %>Madrid <br>
+    <%= check_box_tag 'city_list[]', 'paris' %>Paris <br>
+    <%= check_box_tag 'city_list[]', 'london' %>London <br>
+    <%= check_box_tag 'city_list[]', 'berlin' %>Berlin <br>
+    Or else: <%= text_field_tag 'else' %> <br><br>
+<hr>
+    <%= submit_tag "Submit" %>
+<% end %>
+

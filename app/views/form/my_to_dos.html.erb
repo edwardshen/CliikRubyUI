@@ -1,0 +1,34 @@
+<center><h2>Who am I?</h2></center>
+<%= form_tag :controller => :form, :action => :get_to_dos do %>
+<hr>
+    <b>What kind of activities would let you feel comfortable on your first date? </b><br>
+    <br>
+    <%= check_box_tag 'to_do_list[]', 'movie' %>Watching a movie <br>
+    <%= check_box_tag 'to_do_list[]', 'snack' %>A 15-30 mins casual meeting with some snacks <br>
+    <%= check_box_tag 'to_do_list[]', 'shopping' %>Window Shopping <br>
+    <%= check_box_tag 'to_do_list[]', 'quick_meal' %>A quick meal at a delicious restaurant <br>
+    <%= check_box_tag 'to_do_list[]', 'nice_meal' %>A nice meal at a decent restaurant <br>
+    <%= check_box_tag 'to_do_list[]', 'walk' %>A friendly walk around the park <br>
+    <%= check_box_tag 'to_do_list[]', 'painting' %>Painting <br>
+    <%= check_box_tag 'to_do_list[]', 'cooking' %>Cooking class <br>
+    <%= check_box_tag 'to_do_list[]', 'performance' %>Watching performance art <br>
+    <%= check_box_tag 'to_do_list[]', 'museum' %>Visiting museums <br>
+
+    <% if $test_mode %>
+        <%= check_box_tag 'to_do_list[]', 'suprise_me' %>Her choice/Surprise me <br><br>
+    <% elsif current_user.profile.gender == 'male' %>
+        <%= check_box_tag 'to_do_list[]', 'her_choice' %>Her choice <br><br>
+    <% else %>
+        <%= check_box_tag 'to_do_list[]', 'suprise_me' %>Surprise me <br><br>
+    <% end %>
+
+
+<hr>
+    <b>First date you would prefer: </b><br>
+    <div style='color: red'><%= flash[:notice] %></div><br>
+    <%= radio_button 'what_to_do', 'payment', 'he', {:checked => true} %> he pay for it
+    <%= radio_button 'what_to_do', 'payment', 'dutch' %> we go dutch
+    <%= radio_button 'what_to_do', 'payment', 'her' %> she pay for it <br><br>
+<hr>
+    <%= submit_tag "Submit" %>
+<% end %>

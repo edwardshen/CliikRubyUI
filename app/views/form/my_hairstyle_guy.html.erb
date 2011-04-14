@@ -1,0 +1,9 @@
+<center><h2>Who am I?</h2></center>
+<%= form_tag :controller => :form, :action => :get_hairstyle do %>
+<hr>
+    <b>What are your favorite hairstyles?</b><br>
+    (choose up to 3)(total 16)<br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+<hr>
+    <%= submit_tag 'submit'%>
+<% end %>

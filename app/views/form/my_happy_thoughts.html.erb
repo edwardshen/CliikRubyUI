@@ -1,0 +1,10 @@
+<center><h2>Who am I?</h2></center>
+<%= form_tag :controller => :form, :action => :get_happy_thoughts do %>
+<hr>
+    <b>What’s your happy thought?</b><br>
+    What makes you happy? Could be a song, could be an item, could be a phenomenon. <br>
+    Share your happy moments with everyone on cliik, maybe you will accidentally made someone has a great day!<br><br>
+    <%= text_area_tag 'happy_thought', nil, :cols => 50, :rows => 3 %><br><br>
+<hr>
+    <%= submit_tag "Submit" %>
+<% end %>
