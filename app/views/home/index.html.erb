@@ -1,9 +1,9 @@
-<h1><center>CLiiK</center></h1>
+<h1><center>CLiiK</center></h1><br>
 
 <center>
   <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. <br>
-    <h2><%= link_to 'Start!!', :controller => :form, :action => :my_profile %></h2>
+    Signed in as <%= current_user.email %> <br>
+    <h2><%= link_to 'Start The Questionnaire!', :controller => :form, :action => :my_profile %></h2><br><br>
     Not you?
     <%= link_to "Sign out", destroy_user_session_path %>
   <% else %>
