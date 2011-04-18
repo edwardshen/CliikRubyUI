@@ -2,7 +2,7 @@ class FormController < ApplicationController
 #    before_filter :find_user
     before_filter :authenticate_user!
 
-    $test_mode = nil
+    $test_mode =true
 
 
     def my_profile
