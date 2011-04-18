@@ -26,7 +26,11 @@
     <%= check_box_tag 'my_activity_list[]', 'movie' %>Watching movies <br><br>
 </div>
 <div class='column', id='wish_activities_2'>
-    <b>Her favorite activities?</b> (choose up to 3)<br>
+    <% if current_user.profile.gender == 'male' %>
+        <b>Her favorite activities?</b> (choose up to 3)<br>
+    <% else %>
+        <b>His favorite activities?</b> (choose up to 3)<br>
+    <% end %>
     Page 2<br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
     <%= check_box_tag 'wish_activity_list[]', 'concert' %>Go to concerts <br>
