@@ -1,7 +1,9 @@
-<center><h2>Who am I?</h2></center>
+<br>
+<div id ='header'>CLiiK</div>
+<br><br>
 <%= form_tag :controller => :form, :action => :get_to_dos do %>
 <hr>
-    <b>What kind of activities would let you feel comfortable on your first date? </b><br>
+    <b>What kind of activities would you feel the most comfortable doing? </b><br>
     <br>
     <%= check_box_tag 'to_do_list[]', 'movie' %>Watching a movie <br>
     <%= check_box_tag 'to_do_list[]', 'snack' %>A 15-30 mins casual meeting with some snacks <br>
@@ -24,11 +26,11 @@
 
 
 <hr>
-    <b>First date you would prefer: </b><br>
+    <b>Who would you prefer to pay? </b><br>
     <div style='color: red'><%= flash[:notice] %></div><br>
-    <%= radio_button 'what_to_do', 'payment', 'he', {:checked => true} %> he pay for it
+    <%= radio_button 'what_to_do', 'payment', 'he', {:checked => true} %> he pays for it
     <%= radio_button 'what_to_do', 'payment', 'dutch' %> we go dutch
-    <%= radio_button 'what_to_do', 'payment', 'her' %> she pay for it <br><br>
+<!--    <%= radio_button 'what_to_do', 'payment', 'her' %> she pay for it --><br><br>
 <hr>
     <%= submit_tag "Submit" %>
 <% end %>

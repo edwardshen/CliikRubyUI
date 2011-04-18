@@ -1,0 +1,23 @@
+<br>
+<div id ='header'>CLiiK</div>
+<br><br>
+
+<%= form_tag :controller => :form, :action => :get_wish_outfit_style do %>
+<hr>
+    <b>And her style that you like the most?</b> (choose up to 3)<br>
+    <br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+
+    <% if $test_mode %>
+        <%= render :partial => 'outfit_style_lady' %>
+    <% else %>
+        <% if current_user.profile.gender == 'male' %>
+            <%= render :partial => 'outfit_style_lady' %>
+        <% else %>
+            <%= render :partial => 'outfit_style_guy' %>
+        <% end %>
+    <% end %>
+
+    <hr style="clear:both;" />
+    <%= submit_tag 'submit'%>
+<% end %>

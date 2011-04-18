@@ -1,6 +1,6 @@
 CliikUIDB::Application.configure do
-  config.action_mailer.default_url_options = { :host => '204.232.200.137:2042' }
-#  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+#  config.action_mailer.default_url_options = { :host => '204.232.200.137:2042' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
