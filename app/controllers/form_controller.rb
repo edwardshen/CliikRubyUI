@@ -2,7 +2,7 @@ class FormController < ApplicationController
 #    before_filter :find_user
     before_filter :authenticate_user!
 
-    $test_mode = true
+    $test_mode = nil
 
     def tt
         @tt = params[:helper_list]
