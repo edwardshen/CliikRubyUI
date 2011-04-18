@@ -4,7 +4,12 @@
 
 <%= form_tag :controller => :form, :action => :get_wish_outfit_style do %>
 <hr>
-    <b>And her style that you like the most?</b> (choose up to 3)<br>
+    <% if current_user.profile.gender == 'male' %>
+        <b>And her style that you like the most?</b> (choose up to 3)<br>
+    <% else %>
+        <b>And his style that you like the most?</b> (choose up to 3)<br>
+    <% end %>
+
     <br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
 

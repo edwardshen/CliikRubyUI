@@ -3,7 +3,11 @@
 <br><br>
 <%= form_tag :controller => :form, :action => :get_wish_hairstyle do %>
 <hr>
-    <b>And hers?</b> (choose up to 3)<br>
+    <% if current_user.profile.gender == 'male' %>
+        <b>And hers?</b> (choose up to 3)<br>
+    <% else %>
+        <b>And his?</b> (choose up to 3)<br>
+    <% end %>
     <br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
 
