@@ -16,9 +16,7 @@
     <%= check_box_tag 'to_do_list[]', 'performance' %>Watching performance art <br>
     <%= check_box_tag 'to_do_list[]', 'museum' %>Visiting museums <br>
 
-    <% if $test_mode %>
-        <%= check_box_tag 'to_do_list[]', 'suprise_me' %>Her choice/Surprise me <br><br>
-    <% elsif current_user.profile.gender == 'male' %>
+    <% if current_user.profile.gender == 'male' %>
         <%= check_box_tag 'to_do_list[]', 'her_choice' %>Her choice <br><br>
     <% else %>
         <%= check_box_tag 'to_do_list[]', 'suprise_me' %>Surprise me <br><br>

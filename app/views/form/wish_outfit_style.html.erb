@@ -13,14 +13,10 @@
     <br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
 
-    <% if $test_mode %>
+    <% if current_user.profile.gender == 'male' %>
         <%= render :partial => 'outfit_style_lady' %>
     <% else %>
-        <% if current_user.profile.gender == 'male' %>
-            <%= render :partial => 'outfit_style_lady' %>
-        <% else %>
-            <%= render :partial => 'outfit_style_guy' %>
-        <% end %>
+        <%= render :partial => 'outfit_style_guy' %>
     <% end %>
 
     <hr style="clear:both;" />

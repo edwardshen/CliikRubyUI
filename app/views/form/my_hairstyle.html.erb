@@ -7,14 +7,10 @@
     <br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
 
-    <% if $test_mode %>
+    <% if current_user.profile.gender == 'male' %>
         <%= render :partial => 'hairstyle_guy' %>
     <% else %>
-        <% if current_user.profile.gender == 'male' %>
-            <%= render :partial => 'hairstyle_guy' %>
-        <% else %>
-            <%= render :partial => 'hairstyle_lady' %>
-        <% end %>
+        <%= render :partial => 'hairstyle_lady' %>
     <% end %>
 
 <hr>
