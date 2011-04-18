@@ -18,3 +18,14 @@
 #form_notice{
     color: red;
 }
+
+#pic_row{
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+.item{
+    width: 30%;
+	margin:0 1% 0 2%;
+	float:left;
+}
