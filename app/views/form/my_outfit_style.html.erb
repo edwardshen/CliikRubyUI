@@ -1,6 +1,7 @@
 <br>
 <div id ='header'>CLiiK</div>
 <br><br>
+
 <%= form_tag :controller => :form, :action => :get_outfit_style do %>
 <hr>
     <b>Which outfit style would you choose for yourself?</b> (choose up to 3)<br>
@@ -17,6 +18,6 @@
         <% end %>
     <% end %>
 
-<hr>
+    <hr style="clear:both;" />
     <%= submit_tag 'submit'%>
 <% end %>
