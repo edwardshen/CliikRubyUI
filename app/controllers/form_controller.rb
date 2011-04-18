@@ -2,8 +2,11 @@ class FormController < ApplicationController
 #    before_filter :find_user
     before_filter :authenticate_user!
 
-    $test_mode = nil
+    $test_mode = true
 
+    def tt
+        @tt = params[:helper_list]
+    end
 
     def my_profile
     end
@@ -28,7 +31,7 @@ class FormController < ApplicationController
             current_user.add_profile(@my_gender, @birthday, @my_height, @my_location, @date_location, nil)
             current_user.add_wish_profile(@looking_for_gender, @looking_for_age_from, @looking_for_age_to, @looking_for_height_from, @looking_for_height_to)
         end
-        redirect_to :controller => :form, :action => :my_to_dos
+        redirect_to :controller => :form, :action => :imagine
     end
 
     def my_to_dos
@@ -39,15 +42,16 @@ class FormController < ApplicationController
         @payment = params[:what_to_do]['payment']
 
         if $test_mode
-            redirect_to :controller => :form, :action => :my_outfit_style_guy
+#            redirect_to :controller => :form, :action => :my_outfit_style_guy
         else
             current_user.add_what_to_do(@selected, @payment)
-            if current_user.profile.gender == 'male'
-                redirect_to :controller => :form, :action => :my_outfit_style_guy
-            else
-                redirect_to :controller => :form, :action => :my_outfit_style_lady
-            end
+#            if current_user.profile.gender == 'male'
+#                redirect_to :controller => :form, :action => :my_outfit_style_guy
+#            else
+#                redirect_to :controller => :form, :action => :my_outfit_style_lady
+#            end
         end
+            redirect_to :controller => :form, :action => :my_outfit_style
     end
 
     def my_outfit_style
@@ -61,14 +65,33 @@ class FormController < ApplicationController
         end
 
         if $test_mode
-            redirect_to :controller => :form, :action => :my_hairstyle_guy
+#            redirect_to :controller => :form, :action => :my_hairstyle_guy
         else
             current_user.add_outfit_style(@selected)
-            if current_user.profile.gender == 'male'
-                redirect_to :controller => :form, :action => :my_hairstyle_guy
-            else
-                redirect_to :controller => :form, :action => :my_hairstyle_lady
-            end
+#            if current_user.profile.gender == 'male'
+#                redirect_to :controller => :form, :action => :my_hairstyle_guy
+#            else
+#                redirect_to :controller => :form, :action => :my_hairstyle_lady
+#            end
+        end
+            redirect_to :controller => :form, :action => :wish_outfit_style
+    end
+
+    def wish_outfit_style
+    end
+
+    def get_wish_outfit_style
+        if params[:outfit_style_list]
+            @selected = params[:outfit_style_list]
+        else
+            @selected = []
+        end
+
+        if $test_mode
+            redirect_to :controller => :form, :action => :my_hairstyle
+        else
+            current_user.add_wish_outfit_style(@selected)
+            redirect_to :controller => :form, :action => :my_hairstyle
         end
     end
 
@@ -85,6 +108,22 @@ class FormController < ApplicationController
         unless $test_mode
             current_user.add_hairstyle(@selected)
         end
+        redirect_to :controller => :form, :action => :wish_hairstyle
+    end
+
+    def wish_hairstyle
+    end
+
+    def get_wish_hairstyle
+        if params[:hairstyle_list]
+            @selected = params[:hairstyle_list]
+        else
+            @selected = []
+        end
+
+        unless $test_mode
+            current_user.add_wish_hairstyle(@selected)
+        end
         redirect_to :controller => :form, :action => :my_favorite_activities_1
     end
 
@@ -92,14 +131,16 @@ class FormController < ApplicationController
     end
 
     def get_favorite_activities_1
-        @selected = params[:activity_list]
+        @my_selected = params[:my_activity_list]
+        @wish_selected = params[:wish_activity_list]
 
-        if @selected and @selected.length > 3
+        if (@my_selected and @my_selected.length > 3) or (@wish_selected and @wish_selected.length > 3)
             flash[:notice] = 'choose only up to 3'
             redirect_to :controller => :form, :action => :my_favorite_activities_1
         else
             unless $test_mode
-                current_user.add_outdoor_activity(@selected)
+                current_user.add_outdoor_activity(@my_selected)
+                current_user.add_wish_outdoor_activity(@wish_selected)
             end
             redirect_to :controller => :form, :action => :my_favorite_activities_2
         end
@@ -110,14 +151,16 @@ class FormController < ApplicationController
     end
 
     def get_favorite_activities_2
-        @selected = params[:activity_list]
+        @my_selected = params[:my_activity_list]
+        @wish_selected = params[:wish_activity_list]
 
-        if @selected and @selected.length > 3
+        if (@my_selected and @my_selected.length > 3) or (@wish_selected and @wish_selected.length > 3)
             flash[:notice] = 'choose only up to 3'
             redirect_to :controller => :form, :action => :my_favorite_activities_2
         else
             unless $test_mode
-                current_user.add_indoor_activity(@selected) 
+                current_user.add_indoor_activity(@my_selected) 
+                current_user.add_wish_indoor_activity(@wish_selected) 
             end
             redirect_to :controller => :form, :action => :my_favorite_cities
         end
@@ -164,57 +207,16 @@ class FormController < ApplicationController
         happy_thought = params[:happy_thought]
 
         if $test_mode
-            redirect_to :controller => :form, :action => :wish_outfit_style_guy
+            redirect_to :controller => :form, :action => :done
         else
             current_user.add_happy_thought(happy_thought)
-            if current_user.profile.gender == 'male'
-                redirect_to :controller => :form, :action => :wish_outfit_style_guy
-            else
-                redirect_to :controller => :form, :action => :wish_outfit_style_lady
-            end
+            redirect_to :controller => :form, :action => :done
         end
     end
 
 
 
 
-    def wish_outfit_style
-    end
-
-    def get_wish_outfit_style
-        if params[:outfit_style_list]
-            @selected = params[:outfit_style_list]
-        else
-            @selected = []
-        end
-
-        if $test_mode
-            redirect_to :controller => :form, :action => :wish_hairstyle_guy
-        else
-            current_user.add_wish_outfit_style(@selected)
-            if current_user.profile.gender == 'male'
-                redirect_to :controller => :form, :action => :wish_hairstyle_guy
-            else
-                redirect_to :controller => :form, :action => :wish_hairstyle_lady
-            end
-        end
-    end
-
-    def wish_hairstyle
-    end
-
-    def get_wish_hairstyle
-        if params[:hairstyle_list]
-            @selected = params[:hairstyle_list]
-        else
-            @selected = []
-        end
-
-        unless $test_mode
-            current_user.add_wish_hairstyle(@selected)
-        end
-        redirect_to :controller => :form, :action => :wish_favorite_activities_1
-    end
 
     def wish_favorite_activities_1
     end

@@ -1,8 +1,10 @@
-<center><h2>Who am I?</h2></center>
+<br>
+<div id ='header'>CLiiK</div>
+<br><br>
 <%= form_tag :controller => :form, :action => :get_favorite_ways_to_travel do %>
 <hr>
-    <b>What are your favorite ways to travel?</b><br>
-    (choose up to 5)(total 12)<br>
+    <b>What are your favorite ways to travel?</b> (choose up to 5)<br>
+    <br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
     <%= check_box_tag 'way_to_travel_list[]', 'cruise' %>Join a cruise or a tour <br>
     <%= check_box_tag 'way_to_travel_list[]', 'island' %>Stay at a resorts on a island with great beach <br>

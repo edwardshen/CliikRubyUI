@@ -1,0 +1,22 @@
+<br>
+<div id ='header'>CLiiK</div>
+<br><br>
+<%= form_tag :controller => :form, :action => :get_hairstyle do %>
+<hr>
+    <b>What are your favorite hairstyles?</b> (choose up to 3)<br>
+    <br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+
+    <% if $test_mode %>
+        <%= render :partial => 'hairstyle_guy' %>
+    <% else %>
+        <% if current_user.profile.gender == 'male' %>
+            <%= render :partial => 'hairstyle_guy' %>
+        <% else %>
+            <%= render :partial => 'hairstyle_lady' %>
+        <% end %>
+    <% end %>
+
+<hr>
+    <%= submit_tag 'submit'%>
+<% end %>

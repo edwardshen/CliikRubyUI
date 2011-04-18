@@ -1,26 +1,54 @@
-<center><h2>Who am I?</h2></center>
+<br>
+<div id ='header'>CLiiK</div>
+<br><br>
 <%= form_tag :controller => :form, :action => :get_favorite_activities_2 do %>
 <hr>
-    <b>What are your favorite activities?</b><br>
-    Page 2(choose up to 3)(total 16)<br>
+<div id='container'>
+<div class='column', id='my_activities_2'>
+    <b>What are your favorite activities?</b> (choose up to 3)<br>
+    Page 2<br>
     <div id='form_notice'><%= flash[:notice] %></div><br>
-    <%= check_box_tag 'activity_list[]', 'concert' %>Go to concerts <br>
-    <%= check_box_tag 'activity_list[]', 'painting' %>Painting <br>
-    <%= check_box_tag 'activity_list[]', 'cooking' %>Cooking <br>
-    <%= check_box_tag 'activity_list[]', 'reading' %>Reading <br>
-    <%= check_box_tag 'activity_list[]', 'performance' %>Performance art <br>
-    <%= check_box_tag 'activity_list[]', 'instrument' %>Playing Instrument <br>
-    <%= check_box_tag 'activity_list[]', 'video_gaming' %>Video gaming <br>
-    <%= check_box_tag 'activity_list[]', 'cleaning' %>Cleaning the house <br>
-    <%= check_box_tag 'activity_list[]', 'yoga' %>Yoga <br>
-    <%= check_box_tag 'activity_list[]', 'puzzle_game' %>Puzzles/Board games <br>
-    <%= check_box_tag 'activity_list[]', 'lounge' %>Lounge bars <br>
-    <%= check_box_tag 'activity_list[]', 'clubbing' %>Clubbing <br>
-    <%= check_box_tag 'activity_list[]', 'KTV' %>KTV <br>
-    <%= check_box_tag 'activity_list[]', 'comic' %>Comics <br>
-    <%= check_box_tag 'activity_list[]', 'restaurent_exploring' %>New restaurant exploring <br>
-    <%= check_box_tag 'activity_list[]', 'movie' %>Watching movies <br><br>
-<hr>
+    <%= check_box_tag 'my_activity_list[]', 'concert' %>Go to concerts <br>
+    <%= check_box_tag 'my_activity_list[]', 'painting' %>Painting <br>
+    <%= check_box_tag 'my_activity_list[]', 'cooking' %>Cooking <br>
+    <%= check_box_tag 'my_activity_list[]', 'reading' %>Reading <br>
+    <%= check_box_tag 'my_activity_list[]', 'performance' %>Performance art <br>
+    <%= check_box_tag 'my_activity_list[]', 'instrument' %>Playing Instrument <br>
+    <%= check_box_tag 'my_activity_list[]', 'video_gaming' %>Video gaming <br>
+    <%= check_box_tag 'my_activity_list[]', 'cleaning' %>Cleaning the house <br>
+    <%= check_box_tag 'my_activity_list[]', 'yoga' %>Yoga <br>
+    <%= check_box_tag 'my_activity_list[]', 'puzzle_game' %>Puzzles/Board games <br>
+    <%= check_box_tag 'my_activity_list[]', 'lounge' %>Lounge bars <br>
+    <%= check_box_tag 'my_activity_list[]', 'clubbing' %>Clubbing <br>
+    <%= check_box_tag 'my_activity_list[]', 'KTV' %>KTV <br>
+    <%= check_box_tag 'my_activity_list[]', 'comic' %>Comics <br>
+    <%= check_box_tag 'my_activity_list[]', 'restaurent_exploring' %>New restaurant exploring <br>
+    <%= check_box_tag 'my_activity_list[]', 'movie' %>Watching movies <br><br>
+</div>
+<div class='column', id='wish_activities_2'>
+    <b>Her favorite activities?</b> (choose up to 3)<br>
+    Page 2<br>
+    <div id='form_notice'><%= flash[:notice] %></div><br>
+    <%= check_box_tag 'wish_activity_list[]', 'concert' %>Go to concerts <br>
+    <%= check_box_tag 'wish_activity_list[]', 'painting' %>Painting <br>
+    <%= check_box_tag 'wish_activity_list[]', 'cooking' %>Cooking <br>
+    <%= check_box_tag 'wish_activity_list[]', 'reading' %>Reading <br>
+    <%= check_box_tag 'wish_activity_list[]', 'performance' %>Performance art <br>
+    <%= check_box_tag 'wish_activity_list[]', 'instrument' %>Playing Instrument <br>
+    <%= check_box_tag 'wish_activity_list[]', 'video_gaming' %>Video gaming <br>
+    <%= check_box_tag 'wish_activity_list[]', 'cleaning' %>Cleaning the house <br>
+    <%= check_box_tag 'wish_activity_list[]', 'yoga' %>Yoga <br>
+    <%= check_box_tag 'wish_activity_list[]', 'puzzle_game' %>Puzzles/Board games <br>
+    <%= check_box_tag 'wish_activity_list[]', 'lounge' %>Lounge bars <br>
+    <%= check_box_tag 'wish_activity_list[]', 'clubbing' %>Clubbing <br>
+    <%= check_box_tag 'wish_activity_list[]', 'KTV' %>KTV <br>
+    <%= check_box_tag 'wish_activity_list[]', 'comic' %>Comics <br>
+    <%= check_box_tag 'wish_activity_list[]', 'restaurent_exploring' %>New restaurant exploring <br>
+    <%= check_box_tag 'wish_activity_list[]', 'movie' %>Watching movies <br><br>
+</div>
+</div>
+
+    <hr style="clear:both;" />
     <%= submit_tag "Submit" %>
 <% end %>
 
